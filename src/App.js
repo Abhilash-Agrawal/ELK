@@ -1,7 +1,8 @@
+
 import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
-import Background from './components/background';
+import Home from './components/home';
 
 class App extends Component {
   render() {
@@ -23,7 +24,7 @@ class App extends Component {
         </header> */}
         
         
-        <Background />
+        <Home />
       </div>
     );
   }

@@ -889,7 +889,7 @@ section.screen-height {
 }
 
 #vertical-nav li a {
-    color: #463177;
+    color: #ababab;
     padding: 10px;
     display: block;
     height: 18px;
@@ -898,7 +898,7 @@ section.screen-height {
 
 #vertical-nav li.selected a,
 #vertical-nav li a:hover {
-    font-family: 'gilroyextrabold';
+    font-family: serif;
     font-size: 20px;
 }
 

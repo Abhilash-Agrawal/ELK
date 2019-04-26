@@ -36,7 +36,8 @@
     display: inline-block;
     height: 1500px;
     /*background: #f7f7f7 url(../src/assets/images/noisy-texture-80x80-o3-d18-c-f7f7f7-t1.png) repeat;*/
-	background:  url(../src/assets/images/background.jpg) repeat;
+  background:  url(../src/assets/images/background.jpg) repeat;
+  background-size: contain;
     margin: 0%;
 }
 

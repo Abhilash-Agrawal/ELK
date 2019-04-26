@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import '../App.css';
 import '../assets/css/Main.css';
 import '../assets/css/Home.css';
-import ChartSlider from '../components/chartSlider';
+// import ChartSlider from '../components/chartSlider';
 import Header from './header';
 import AppSearch from './appSearch';
 
@@ -151,23 +151,15 @@ class Background extends Component {
               </div>
             </div>
           </div> */}
-          <Header>
-            <span className="header-title">MaaS</span> 
-          </Header>
         </div>
-        <div className="header-line">
+        {/* <div className="header-line">
           <hr></hr>
-        </div>
+        </div> */}
 
-        <div>
-          <section id="search" className="screen-height">
-            <AppSearch></AppSearch>
-          </section>
-          <section id="form-section">
             <div>
               <section id="intro" className="screen-height"></section>
               <section id="values" className="screen-height"></section>
-              <section id="projects" className="screen-height"><ChartSlider/></section>
+              <section id="projects" className="screen-height"></section>
               <section id="process" className="screen-height"></section>
               <section id="testimonials" className="screen-height"></section>
             </div>
@@ -180,8 +172,6 @@ class Background extends Component {
                 <li><a className="hash-link" href="#testimonials" title="Navigate to testimonials section">Progress</a></li>
               </ul>
             </div>
-          </section>
-        </div>
       </div>
     )}
 }
