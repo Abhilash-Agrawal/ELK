@@ -1128,7 +1128,7 @@ div.process-bubble-wrapper .process-bubble:nth-of-type(4) .text-wrapper {
     background-color: #00738a;
     color: white;
     border-radius: 4px;
-    width: 92px;
+    width: auto;
     height: 34px;
     border: #00738a;
   }

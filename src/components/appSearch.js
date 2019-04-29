@@ -27,7 +27,7 @@ class AppSearch extends Component {
                     suffix={!this.state.searchText && <Icon type="search" style={{ color: 'rgba(0,0,0,.45)' }} />}
                 /></div>
                 <div className="search-button-div">
-                <button className="search-button" onClick={this.loadAppDetails}>Search</button>
+                <button className="search-button btn" onClick={this.loadAppDetails}>Search</button>
                 </div>
             </div>
         );

@@ -4,7 +4,8 @@ import '../assets/css/Main.css';
 import '../assets/css/Home.css';
 // import ChartSlider from '../components/chartSlider';
 import Header from './header';
-import AppSearch from './appSearch';
+import ServerDetails from './serverDetails';
+import LogDetails from './logDetails';
 
 class Background extends Component {
   abhi()
@@ -157,8 +158,8 @@ class Background extends Component {
         </div> */}
 
             <div>
-              <section id="intro" className="screen-height"></section>
-              <section id="values" className="screen-height"></section>
+              <section id="intro" className="screen-height"><ServerDetails /></section>
+              <section id="values" className="screen-height"><LogDetails/></section>
               <section id="projects" className="screen-height"></section>
               <section id="process" className="screen-height"></section>
               <section id="testimonials" className="screen-height"></section>
