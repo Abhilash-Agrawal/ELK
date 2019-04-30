@@ -28,9 +28,16 @@ class LogDetails extends Component {
         this.state = {
             showSearchPage: true,
             showFormPage: false,
-            logTypeOptions: ['Text', 'Database'],
-            logType: ""
+            logTypeOptions: [  { value: 'text', label: 'Text' },  { value: 'database', label: 'Database' }],
+            databaseOptions: [
+                { value: 'DB2', label: 'DB2' },
+                { value: 'MySQL', label: 'MySQL' },
+                { value: 'PostgreSQL', label: 'PostgreSQL' },
+                { value: 'SQL Server', label: 'SQL Server' },
+                { value: 'Oracle', label: 'Oracle' }
+            ]
         };
+        this.steps = [];
     }
 
     abhi = () => {
@@ -66,6 +73,15 @@ class LogDetails extends Component {
     }
 
     render() {
+        let steps = this.steps.map((steps) => {
+            return (
+                <li onClick={() => { this.showField("database") }}><a class="hash-link-form" href="#database" title="Navigate to values section">{steps.value}</a></li>
+                // <li onClick={() => { this.showField("host") }}><a className="hash-link-form" href="#host" title="Navigate to projects section">Host</a></li>
+                // <li onClick={() => { this.showField("port") }}><a className="hash-link-form" href="#port" title="Navigate to process section">Port</a></li>
+                // <li onClick={() => { this.showField("databaseName") }}><a className="hash-link-form" href="#database_name" title="Navigate to testimonials section">Database Name</a></li>
+                // <li onClick={() => { this.showField("summary") }}><a className="hash-link-form" href="#summary" title="Navigate to summary section">Summary</a></li>
+            )
+        })
         return (
             <div className="">
                 <div className="log-list">
@@ -89,7 +105,7 @@ class LogDetails extends Component {
                                                     placeholder="please select log type..."
                                                     className="dropdown-input"
                                                     value={this.state.logType}
-                                                    onChange={this.handleSelectChange} />
+                                                    onChange={this.changeLogType} />
                                                 <div className="button-field">
                                                     <button className="search-button" onClick={this.loadAppDetails}>Next</button>
                                                 </div>
@@ -98,11 +114,11 @@ class LogDetails extends Component {
                                         <section id="database" className="w3-hide form-section form-height">
                                             <div className="input-field">
                                                 <Select
-                                                    options={this.state.logTypeOptions}
+                                                    options={this.state.databaseOptions}
                                                     placeholder="please select database..."
                                                     className="dropdown-input"
-                                                    value={this.state.logType}
-                                                    onChange={this.handleSelectChange} />
+                                                    value={this.state.database}
+                                                    onChange={this.updateField} />
                                                 <div className="button-field">
                                                 </div>
                                                 <div className="col-6">
@@ -185,11 +201,12 @@ class LogDetails extends Component {
                                 <div id="vertical-nav-form" className="">
                                     <ul>
                                         <li className="selected" onClick={() => { this.showField("logType") }}><a className="hash-link-form" href="#log_type" title="Navigate to Top">Log Type</a></li>
-                                        <li onClick={() => { this.showField("database") }}><a class="hash-link-form" href="#database" title="Navigate to values section">Database</a></li>
+                                        {steps}
+                                        {/* <li onClick={() => { this.showField("database") }}><a class="hash-link-form" href="#database" title="Navigate to values section">Database</a></li>
                                         <li onClick={() => { this.showField("host") }}><a className="hash-link-form" href="#host" title="Navigate to projects section">Host</a></li>
                                         <li onClick={() => { this.showField("port") }}><a className="hash-link-form" href="#port" title="Navigate to process section">Port</a></li>
                                         <li onClick={() => { this.showField("databaseName") }}><a className="hash-link-form" href="#database_name" title="Navigate to testimonials section">Database Name</a></li>
-                                        <li onClick={() => { this.showField("summary") }}><a className="hash-link-form" href="#summary" title="Navigate to summary section">Summary</a></li>
+                                        <li onClick={() => { this.showField("summary") }}><a className="hash-link-form" href="#summary" title="Navigate to summary section">Summary</a></li> */}
                                     </ul>
                                 </div>
                             </div>
@@ -243,6 +260,25 @@ class LogDetails extends Component {
         try {
             this.setState({ [evt.target.name]: evt.target.value });
         } catch (err) {
+        }
+    }
+
+    changeLogType = evt => {
+        this.setState({ logType: evt.value });
+
+        if (evt.value === 'database') {
+            this.steps = [
+                { value: 'Database', key: 'database' },
+                { value: 'Host', key: 'host' },
+                { value: 'Port', key: 'port' },
+                { value: 'Database Name/ SID', key: 'databaseName' },
+                { value: 'Summary', key: 'summary' }
+            ];
+        } else {
+            this.steps = [
+                { value: 'Log Location', key: 'location' },
+                { value: 'Summary', key: 'summary' }
+            ]
         }
     }
 
